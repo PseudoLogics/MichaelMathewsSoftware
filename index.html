@@ -28,7 +28,7 @@
       width: min(1100px, 90%);
       margin: 60px auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 40px;
     }
 
@@ -48,13 +48,37 @@
       box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
     }
 
+    /* ---------- VIDEO ---------- */
+    .video-wrapper {
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+
+    /* ---------- TITLE ---------- */
     .project-title {
-      margin: 0 0 18px 0;
+      margin: 10px 0 12px 0;
       font-size: 1.5rem;
       font-weight: 600;
       color: #111;
     }
 
+    /* ---------- DESCRIPTION ---------- */
+    .project-desc {
+      color: #444;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+
+    /* ---------- SCREENSHOTS ---------- */
     .screenshot-row {
       display: flex;
       gap: 10px;
@@ -70,13 +94,6 @@
 
     .screenshot-row img:hover {
       transform: scale(1.02);
-    }
-
-    .project-desc {
-      color: #444;
-      font-size: 0.95rem;
-      margin-bottom: 18px;
-      line-height: 1.55;
     }
 
     /* ---------- CODE BLOCK ---------- */
@@ -110,18 +127,25 @@
 
     <!-- ---------- PROJECT 1 ---------- -->
     <div class="project-card">
-      <div class="project-title">API‑Driven Analytics Dashboard</div>
+
+      <div class="video-wrapper">
+        <video autoplay loop muted playsinline>
+          <source src="videos/dashboard.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h2 class="project-title">API‑Driven Analytics Dashboard</h2>
+
+      <p class="project-desc">
+        A modular analytics dashboard built with React, Node.js, and Express.
+        Features JWT authentication, real‑time chart updates, and a clean component architecture.
+      </p>
 
       <div class="screenshot-row">
         <img src="images/api1.png" alt="">
         <img src="images/api2.png" alt="">
         <img src="images/api3.png" alt="">
       </div>
-
-      <p class="project-desc">
-        A full‑stack analytics dashboard built with Node.js, Express, and React.
-        Features JWT authentication, real‑time chart updates, and modular API architecture.
-      </p>
 
       <pre class="code-block"><code>
 // Example Express route
@@ -130,22 +154,30 @@ app.get("/metrics", async (req, res) => {
   res.json(data);
 });
       </code></pre>
+
     </div>
 
     <!-- ---------- PROJECT 2 ---------- -->
     <div class="project-card">
-      <div class="project-title">C# Workflow Automation Tool</div>
+
+      <div class="video-wrapper">
+        <video autoplay loop muted playsinline>
+          <source src="videos/workflow.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h2 class="project-title">C# Workflow Automation Tool</h2>
+
+      <p class="project-desc">
+        A desktop automation tool built in C#/.NET for batch processing,
+        file parsing, and scheduled tasks. Designed for enterprise workflow optimization.
+      </p>
 
       <div class="screenshot-row">
         <img src="images/workflow1.png" alt="">
         <img src="images/workflow2.png" alt="">
         <img src="images/workflow3.png" alt="">
       </div>
-
-      <p class="project-desc">
-        A desktop automation tool built in C#/.NET for batch processing,
-        file parsing, and scheduled tasks. Designed for enterprise workflow optimization.
-      </p>
 
       <pre class="code-block"><code>
 // File parsing snippet
@@ -154,11 +186,24 @@ foreach (var line in File.ReadLines(path)) {
         errorCount++;
 }
       </code></pre>
+
     </div>
 
     <!-- ---------- PROJECT 3 ---------- -->
     <div class="project-card">
-      <div class="project-title">MEAN Stack Inventory System</div>
+
+      <div class="video-wrapper">
+        <video autoplay loop muted playsinline>
+          <source src="videos/inventory.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <h2 class="project-title">MEAN Stack Inventory System</h2>
+
+      <p class="project-desc">
+        A clean, responsive inventory management system with role‑based access,
+        REST API endpoints, and a modern Angular UI.
+      </p>
 
       <div class="screenshot-row">
         <img src="images/inv1.png" alt="">
@@ -166,17 +211,13 @@ foreach (var line in File.ReadLines(path)) {
         <img src="images/inv3.png" alt="">
       </div>
 
-      <p class="project-desc">
-        A clean, responsive inventory management system with role‑based access,
-        REST API endpoints, and a modern Angular UI.
-      </p>
-
       <pre class="code-block"><code>
 // Angular service call
 getItems() {
   return this.http.get&lt;Item[]&gt;("/api/items");
 }
       </code></pre>
+
     </div>
 
   </div>
