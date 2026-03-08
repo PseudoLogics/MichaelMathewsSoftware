@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michael Mathews — Software Developer</title>
+
+  <style>
+    /* ---------- GLOBAL ---------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Inter", sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a, #0d0d0d 60%);
+      color: #eaeaea;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 3rem;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #7f5cff, #00d4ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .container {
+      width: min(1200px, 90%);
+      margin: 60px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+
+    /* ---------- PROJECT CARD ---------- */
+    .project-card {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 25px;
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .project-title {
+      margin: 0 0 15px 0;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+
+    .screenshot-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .screenshot-row img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: opacity 0.2s ease;
+    }
+
+    .screenshot-row img:hover {
+      opacity: 0.8;
+    }
+
+    .project-desc {
+      color: #d0d0d0;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    /* ---------- CODE BLOCK ---------- */
+    .code-block {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      border-radius: 12px;
+      overflow-x: auto;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 0.9rem;
+      color: #eaeaea;
+      font-family: "JetBrains Mono", monospace;
+      white-space: pre;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #777;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>My Software & Game Dev Projects</h1>
+
+  <div class="container">
+
+    <!-- ---------- PROJECT 1 ---------- -->
+    <div class="project-card">
+      <div class="project-title">OpenGL Terrain Generator</div>
+
+      <div class="screenshot-row">
+        <img src="images/terrain1.png" alt="">
+        <img src="images/terrain2.png" alt="">
+        <img src="images/terrain3.png" alt="">
+      </div>
+
+      <p class="project-desc">
+        Procedural terrain system built in C++ and OpenGL. Features real‑time lighting,
+        dynamic LOD, and GPU‑accelerated noise generation.
+      </p>
+
+      <pre class="code-block"><code>
+// Height sampling using Perlin noise
+float Terrain::getHeight(int x, int z) {
+    float noise = perlinNoise(x * 0.05f, z * 0.05f);
+    return noise * maxHeight;
+}
+      </code></pre>
+    </div>
+
+    <!-- ---------- PROJECT 2 ---------- -->
+    <div class="project-card">
+      <div class="project-title">C# Physics Sandbox</div>
+
+      <div class="screenshot-row">
+        <img src="images/phys1.png" alt="">
+        <img src="images/phys2.png" alt="">
+        <img src="images/phys3.png" alt="">
+      </div>
+
+      <p class="project-desc">
+        A custom physics engine with collision detection, rigidbody simulation,
+        and debug visualization tools. Built with C# and OpenTK.
+      </p>
+
+      <pre class="code-block"><code>
+// Basic rigidbody integration
+void Integrate(Rigidbody rb, float dt) {
+    rb.velocity += rb.acceleration * dt;
+    rb.position += rb.velocity * dt;
+}
+      </code></pre>
+    </div>
+
+    <!-- ---------- PROJECT 3 ---------- -->
+    <div class="project-card">
+      <div class="project-title">MEAN Stack Inventory App</div>
+
+      <div class="screenshot-row">
+        <img src="images/inv1.png" alt="">
+        <img src="images/inv2.png" alt="">
+        <img src="images/inv3.png" alt="">
+      </div>
+
+      <p class="project-desc">
+        Full CRUD inventory management system with JWT auth, admin dashboard,
+        and responsive UI. Built with Angular, Node, Express, and MongoDB.
+      </p>
+
+      <pre class="code-block"><code>
+// Express route for fetching all items
+router.get("/items", async (req, res) => {
+    const items = await Item.find();
+    res.json(items);
+});
+      </code></pre>
+    </div>
+
+  </div>
+
+  <footer>
+    © 2026 Michael Mathews — Built with love, caffeine, and clean code.
+  </footer>
+
+</body>
+</html>
