@@ -15,17 +15,37 @@
       color: #222;
     }
 
-    /* ---------- CLEAN MODERN HEADER ---------- */
-    h1 {
+    /* ---------- MODERN HEADER (NEW) ---------- */
+    header {
       text-align: center;
       margin-top: 60px;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #111;
-      letter-spacing: -0.8px;
+      margin-bottom: 40px;
+      animation: fadeIn 0.8s ease;
     }
 
-    /* ---------- PAGE WRAPPER (NO SIDEBAR ANYMORE) ---------- */
+    header h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.9px;
+      margin-bottom: 10px;
+    }
+
+    header .subline {
+      width: 60px;
+      height: 3px;
+      background: #111;
+      margin: 0 auto;
+      border-radius: 2px;
+      opacity: 0.15;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- PAGE WRAPPER ---------- */
     .page-wrapper {
       width: min(1300px, 95%);
       margin: 40px auto;
@@ -116,7 +136,7 @@
       white-space: pre;
     }
 
-    /* ---------- ABOUT ME BOTTOM SECTION ---------- */
+    /* ---------- ABOUT ME SECTION (NEW) ---------- */
     .about-section {
       max-width: 800px;
       margin: 80px auto 40px auto;
@@ -127,6 +147,16 @@
       border: 1px solid rgba(0, 0, 0, 0.08);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       text-align: center;
+    }
+
+    .about-photo {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 3px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
     }
 
     .about-section h2 {
@@ -167,10 +197,12 @@
 
 <body>
 
-  <h1>Software Engineering Projects</h1>
+  <header>
+    <h1>Software Engineering Projects</h1>
+    <div class="subline"></div>
+  </header>
 
   <div class="page-wrapper">
-
     <div class="container">
 
       <!-- ---------- PROJECT 1 ---------- -->
@@ -275,14 +307,18 @@ getItems() {
     </div>
   </div>
 
-  <!-- ---------- ABOUT ME SECTION AT BOTTOM ---------- -->
+  <!-- ---------- ABOUT ME SECTION ---------- -->
   <div class="about-section">
+    <img src="images/yourphoto.jpg" class="about-photo" alt="Michael Mathews">
+
     <h2>About Me</h2>
+
     <p>
       I'm Michael Mathews, a software developer focused on clean architecture,
       modern UI, and building polished engineering projects that feel intentional
       and well‑designed.
     </p>
+
     <p>
       I love creating systems that are both technically solid and visually clear,
       from low‑level C++ servers to full MEAN stack applications.
