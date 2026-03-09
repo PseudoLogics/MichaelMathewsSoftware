@@ -15,18 +15,83 @@
       color: #222;
     }
 
-    h1 {
+    /* ---------- MODERN HEADER ---------- */
+    header {
+      width: 100%;
+      padding: 28px 0;
       text-align: center;
-      margin-top: 60px;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #111;
-      letter-spacing: -0.5px;
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
 
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.4px;
+    }
+
+    /* ---------- LAYOUT WRAPPER ---------- */
+    .page-wrapper {
+      display: flex;
+      width: min(1300px, 95%);
+      margin: 40px auto;
+      gap: 40px;
+    }
+
+    /* ---------- ABOUT ME STICKY CARD ---------- */
+    .about-card {
+      width: 260px;
+      height: fit-content;
+      position: sticky;
+      top: 100px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .about-card h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #111;
+    }
+
+    .about-card p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .about-card a {
+      display: block;
+      margin-bottom: 8px;
+      color: #0066cc;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .about-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- MAIN CONTENT COLUMN ---------- */
+    .main-content {
+      flex: 1;
+    }
+
+    /* ---------- PROJECT GRID ---------- */
     .container {
-      width: min(1100px, 90%);
-      margin: 60px auto;
+      width: 100%;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
       gap: 40px;
@@ -121,109 +186,130 @@
 
 <body>
 
-  <h1>Software Engineering Projects</h1>
+  <header>
+    <h1>Software Engineering Projects</h1>
+  </header>
 
-  <div class="container">
+  <div class="page-wrapper">
 
-    <!-- ---------- PROJECT 1 ---------- -->
-    <div class="project-card">
-
-      <div class="video-wrapper">
-        <video autoplay loop muted playsinline>
-          <source src="videos/2DEngineJava.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <h2 class="project-title">Physics Engine</h2>
-
-      <p class="project-desc">
-        A physics‑based sandbox I built in Java using AWT and Swing. 
-        Boxes fall under gravity, pick up speed, collide, and stack on each other. 
-        I made it to understand the core ideas behind how physics engines work, motion 
-        updates, collision checks, and basic stacking behavior, without relying on any external libraries.  
+    <!-- ---------- ABOUT ME CARD ---------- -->
+    <div class="about-card">
+      <h2>Michael Mathews</h2>
+      <p>
+        Software developer focused on clean architecture, modern UI, and
+        building polished, intentional engineering projects.
       </p>
 
-      <div class="screenshot-row">
-        <img src="images/JavaEngine1.png" alt="">
-        <img src="images/JavaEngine2.png" alt="">
-        <img src="images/JavaEngine3.png" alt="">
-      </div>
+      <a href="mailto:michaeldavidmathews@gmail.com">Email</a>
+      <a href="https://github.com/PseudoLogics">GitHub</a>
+      <a href="https://www.linkedin.com/in/michael-mathews-26074213a">LinkedIn</a>
+    </div>
 
-      <pre class="code-block"><code>
+    <!-- ---------- MAIN CONTENT ---------- -->
+    <div class="main-content">
+      <div class="container">
+
+        <!-- ---------- PROJECT 1 ---------- -->
+        <div class="project-card">
+
+          <div class="video-wrapper">
+            <video autoplay loop muted playsinline>
+              <source src="videos/2DEngineJava.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <h2 class="project-title">Physics Engine</h2>
+
+          <p class="project-desc">
+            A physics‑based sandbox I built in Java using AWT and Swing.
+            Boxes fall under gravity, pick up speed, collide, and stack on each other.
+            I made it to understand the core ideas behind how physics engines work, motion
+            updates, collision checks, and basic stacking behavior, without relying on any external libraries.
+          </p>
+
+          <div class="screenshot-row">
+            <img src="images/JavaEngine1.png" alt="">
+            <img src="images/JavaEngine2.png" alt="">
+            <img src="images/JavaEngine3.png" alt="">
+          </div>
+
+          <pre class="code-block"><code>
 // Example Express route
 app.get("/metrics", async (req, res) => {
   const data = await MetricsService.getDailyStats();
   res.json(data);
 });
-      </code></pre>
+          </code></pre>
 
-    </div>
+        </div>
 
-    <!-- ---------- PROJECT 2 ---------- -->
-    <div class="project-card">
+        <!-- ---------- PROJECT 2 ---------- -->
+        <div class="project-card">
 
-      <div class="video-wrapper">
-        <video autoplay loop muted playsinline>
-          <source src="videos/CPlusPlusHTMLServer.mp4" type="video/mp4">
-        </video>
-      </div>
+          <div class="video-wrapper">
+            <video autoplay loop muted playsinline>
+              <source src="videos/CPlusPlusHTMLServer.mp4" type="video/mp4">
+            </video>
+          </div>
 
-      <h2 class="project-title">C++ Webserver</h2>
+          <h2 class="project-title">C++ Webserver</h2>
 
-      <p class="project-desc">
-        A lightweight HTTP server written in C++ capable of hosting static 
-        website files. Demonstration includes serving HTML forms locally, 
-        with support for deployment beyond the local environment. Built to 
-        explore low‑level networking, request handling, and server architecture.
-      </p>
+          <p class="project-desc">
+            A lightweight HTTP server written in C++ capable of hosting static
+            website files. Demonstration includes serving HTML forms locally,
+            with support for deployment beyond the local environment. Built to
+            explore low‑level networking, request handling, and server architecture.
+          </p>
 
-      <div class="screenshot-row">
-        <img src="images/CHTML1.png" alt="">
-        <img src="images/CHTML2.png" alt="">
-        <img src="images/CHTML3.png" alt="">
-      </div>
+          <div class="screenshot-row">
+            <img src="images/CHTML1.png" alt="">
+            <img src="images/CHTML2.png" alt="">
+            <img src="images/CHTML3.png" alt="">
+          </div>
 
-      <pre class="code-block"><code>
+          <pre class="code-block"><code>
 // File parsing snippet
 foreach (var line in File.ReadLines(path)) {
     if (line.Contains("ERROR"))
         errorCount++;
 }
-      </code></pre>
+          </code></pre>
 
-    </div>
+        </div>
 
-    <!-- ---------- PROJECT 3 ---------- -->
-    <div class="project-card">
+        <!-- ---------- PROJECT 3 ---------- -->
+        <div class="project-card">
 
-      <div class="video-wrapper">
-        <video autoplay loop muted playsinline>
-          <source src="videos/inventory.mp4" type="video/mp4">
-        </video>
-      </div>
+          <div class="video-wrapper">
+            <video autoplay loop muted playsinline>
+              <source src="videos/inventory.mp4" type="video/mp4">
+            </video>
+          </div>
 
-      <h2 class="project-title">MEAN Stack Inventory System</h2>
+          <h2 class="project-title">MEAN Stack Inventory System</h2>
 
-      <p class="project-desc">
-        A clean, responsive inventory management system with role‑based access,
-        REST API endpoints, and a modern Angular UI.
-      </p>
+          <p class="project-desc">
+            A clean, responsive inventory management system with role‑based access,
+            REST API endpoints, and a modern Angular UI.
+          </p>
 
-      <div class="screenshot-row">
-        <img src="images/inv1.png" alt="">
-        <img src="images/inv2.png" alt="">
-        <img src="images/inv3.png" alt="">
-      </div>
+          <div class="screenshot-row">
+            <img src="images/inv1.png" alt="">
+            <img src="images/inv2.png" alt="">
+            <img src="images/inv3.png" alt="">
+          </div>
 
-      <pre class="code-block"><code>
+          <pre class="code-block"><code>
 // Angular service call
 getItems() {
   return this.http.get&lt;Item[]&gt;("/api/items");
 }
-      </code></pre>
+          </code></pre>
 
+        </div>
+
+      </div>
     </div>
-
   </div>
 
   <footer>
