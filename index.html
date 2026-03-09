@@ -230,11 +230,16 @@
         </div>
 
         <pre class="code-block"><code>
-// Example Express route
-app.get("/metrics", async (req, res) => {
-  const data = await MetricsService.getDailyStats();
-  res.json(data);
-});
+            // Simple box physics
+            if(box.y + box.height < (getHeight() - getHeight() / 8)){
+                box.velocityY += tickRate * gravityRate;
+                box.y += box.velocityY;
+            }
+            for(Box otherBox : boxesList){
+                if(box != otherBox && box.collidesWith(otherBox)){
+                    box.y = otherBox.y - otherBox.height;
+                    box.velocityY = 0;
+                }
         </code></pre>
 
       </div>
