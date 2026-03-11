@@ -230,16 +230,16 @@
         </div>
 
         <pre class="code-block"><code>
-            // Simple box physics
-            if(box.y + box.height < (getHeight() - getHeight() / 8)){
-                box.velocityY += tickRate * gravityRate;
-                box.y += box.velocityY;
-            }
-            for(Box otherBox : boxesList){
-                if(box != otherBox && box.collidesWith(otherBox)){
-                    box.y = otherBox.y - otherBox.height;
-                    box.velocityY = 0;
-                }
+// Simple box physics
+if(box.y + box.height < (getHeight() - getHeight() / 8)){
+    box.velocityY += tickRate * gravityRate;
+    box.y += box.velocityY;
+ }
+    for(Box otherBox : boxesList){
+        if(box != otherBox && box.collidesWith(otherBox)){
+              box.y = otherBox.y - otherBox.height;
+              box.velocityY = 0;
+        }
         </code></pre>
 
       </div>
@@ -269,10 +269,16 @@
         </div>
 
         <pre class="code-block"><code>
-// File parsing snippet
-foreach (var line in File.ReadLines(path)) {
-    if (line.Contains("ERROR"))
-        errorCount++;
+void sendAll(int socket, const char* data, size_t length) {
+    size_t totalSent = 0;
+    while (totalSent < length) {
+        ssize_t sent = send(socket, data + totalSent, length - totalSent, 0);
+        if (sent < 0) {
+            perror("send");
+            break;
+        }
+        totalSent += sent;
+    }
 }
         </code></pre>
 
@@ -283,27 +289,40 @@ foreach (var line in File.ReadLines(path)) {
 
         <div class="video-wrapper">
           <video autoplay loop muted playsinline>
-            <source src="videos/inventory.mp4" type="video/mp4">
+            <source src="videos/Server.mp4" type="video/mp4">
           </video>
         </div>
 
-        <h2 class="project-title">MEAN Stack Inventory System</h2>
+        <h2 class="project-title">Java Multiplayer Server</h2>
 
         <p class="project-desc">
-          A clean, responsive inventory management system with role‑based access,
-          REST API endpoints, and a modern Angular UI.
+          Built a Java socket-based multiplayer server deployed on DigitalOcean. 
+          The first version supported real-time communication for a 2D game, 
+          including animation synchronization, while a later version was 
+          redesigned to support 3D game clients and more complex multiplayer data exchange.
         </p>
 
         <div class="screenshot-row">
-          <img src="images/inv1.png" alt="">
-          <img src="images/inv2.png" alt="">
-          <img src="images/inv3.png" alt="">
+          <img src="images/Server1.png" alt="">
+          <img src="images/Server2.png" alt="">
+          <img src="images/Server3.png" alt="">
         </div>
 
         <pre class="code-block"><code>
-// Angular service call
-getItems() {
-  return this.http.get&lt;Item[]&gt;("/api/items");
+//send data out to clients
+for(ClientHandler otherClients: Server.clientsList) {
+try {
+if(otherClients != this) {
+synchronized(otherClients.dataOut) {
+otherClients.dataOut.writeUTF(clientID.toString());
+otherClients.dataOut.writeInt(movementX);
+otherClients.dataOut.writeInt(movementY);
+otherClients.dataOut.flush();
+}
+}
+}catch(Exception e) {
+System.out.println("Can't send data to other clients...");
+}
 }
         </code></pre>
 
